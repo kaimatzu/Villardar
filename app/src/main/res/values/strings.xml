@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Karl John Villardar</string>
+    <string name="string_change">Change</string>
+    <string name="hello_villardar">Hello, Villardar</string>
 </resources>
