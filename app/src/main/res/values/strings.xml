@@ -2,4 +2,15 @@
     <string name="app_name">Karl John Villardar</string>
     <string name="string_change">Change</string>
     <string name="hello_villardar">Hello, Villardar</string>
+    <string name="name">Name</string>
+    <string name="select_one">Select one:</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="string_female">Female</string>
+    <string name="enter_name">Enter Name</string>
+    <string-array name="choice_array">
+        <item>Admin</item>
+        <item>Teacher</item>
+        <item>Student</item>
+    </string-array>
 </resources>
