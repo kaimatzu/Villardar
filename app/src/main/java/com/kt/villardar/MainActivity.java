@@ -3,10 +3,12 @@ package com.kt.villardar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -15,6 +17,7 @@ import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -29,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
 
+
+        userTypeChangeListenerMethod(this);
         ConstraintLayout constraintLayout = (ConstraintLayout) findViewById(R.id.constLayout);
         constraintLayout.setBackgroundColor(Color.WHITE);
         dayToggleSwitchListenerMethod();
@@ -69,6 +74,22 @@ public class MainActivity extends AppCompatActivity {
                         tv.setTextColor(Color.WHITE);
                     }
                 }
+            }
+        });
+    }
+
+    public void userTypeChangeListenerMethod(Context c) {
+        Spinner userTypeSpinner = (Spinner) findViewById(R.id.userTypeSpinner);
+        userTypeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                String selected = (String) userTypeSpinner.getItemAtPosition(i);
+                Toast.makeText(c, "You have selected " + selected, Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
             }
         });
     }
