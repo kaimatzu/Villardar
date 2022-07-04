@@ -7,6 +7,9 @@ import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -38,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
         constraintLayout.setBackgroundColor(Color.WHITE);
         dayToggleSwitchListenerMethod();
         myButtonListenerMethod();
+        edittextListenerMethod();
     }
 
     public void dayToggleSwitchListenerMethod(){
@@ -108,4 +112,27 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+    public void edittextListenerMethod() {
+        EditText etName = (EditText) findViewById(R.id.nameTextBox);
+        etName.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+//                System.out.println("Before: " + charSequence);
+                Log.d("Name", "Before: " + charSequence);
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+//                System.out.println("After: " + charSequence);
+                Log.d("Name", "After: " + charSequence);
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+    }
+
 }
