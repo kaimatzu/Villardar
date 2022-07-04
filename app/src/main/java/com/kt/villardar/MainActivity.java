@@ -9,7 +9,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.Spinner;
+import android.widget.Switch;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Spinner spinner = (Spinner) findViewById(R.id.spinner);
+        Spinner spinner = (Spinner) findViewById(R.id.userTypeSpinner);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.choice_array, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -26,7 +31,46 @@ public class MainActivity extends AppCompatActivity {
 
         ConstraintLayout constraintLayout = (ConstraintLayout) findViewById(R.id.constLayout);
         constraintLayout.setBackgroundColor(Color.WHITE);
+        dayToggleSwitchListenerMethod();
         myButtonListenerMethod();
+    }
+
+    public void dayToggleSwitchListenerMethod(){
+        Switch sw = (Switch) findViewById(R.id.switchDayToggle);
+
+        ConstraintLayout constraintLayout = (ConstraintLayout) findViewById(R.id.constLayout);
+        TextView title = (TextView) findViewById(R.id.title);
+        TextView name = (TextView) findViewById(R.id.name);
+        EditText etName = (EditText) findViewById(R.id.nameTextBox);
+        CheckBox cbCIT = (CheckBox) findViewById(R.id.fromCITCheckBox);
+        Spinner spUsertype = (Spinner) findViewById(R.id.userTypeSpinner);
+        RadioButton rbMale = (RadioButton) findViewById(R.id.maleRadioButton);
+        RadioButton rbFemale = (RadioButton) findViewById(R.id.femaleRadioButton);
+        RadioButton rbFirst = (RadioButton) findViewById(R.id.firstYearRadioButton);
+        RadioButton rbSecond = (RadioButton) findViewById(R.id.secondYearRadioButton);
+        RadioButton rbThird = (RadioButton) findViewById(R.id.thirdYearRadioButton);
+        RadioButton rbFourth = (RadioButton) findViewById(R.id.fourthYearRadioButton);
+
+        TextView[] texts = {sw, cbCIT, rbMale, rbFemale, rbFirst, rbSecond, rbThird, rbFourth, title, name, etName};
+        sw.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                ConstraintLayout constraintLayout = (ConstraintLayout) findViewById(R.id.constLayout);
+
+                if(sw.isChecked()) {
+                    constraintLayout.setBackgroundColor(Color.WHITE);
+                    for (TextView tv : texts) {
+                        tv.setTextColor(Color.BLACK);
+                    }
+                }
+                else {
+                    constraintLayout.setBackgroundColor(Color.BLACK);
+                    for (TextView tv : texts) {
+                        tv.setTextColor(Color.WHITE);
+                    }
+                }
+            }
+        });
     }
 
     public void myButtonListenerMethod(){

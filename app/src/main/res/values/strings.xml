@@ -8,6 +8,12 @@
     <string name="female">Female</string>
     <string name="string_female">Female</string>
     <string name="enter_name">Enter Name</string>
+    <string name="day_mode">Day Mode</string>
+    <string name="from_cit">from CIT</string>
+    <string name="_1st">1st</string>
+    <string name="_2nd">2nd</string>
+    <string name="_3rd">3rd</string>
+    <string name="_4th">4th</string>
     <string-array name="choice_array">
         <item>Admin</item>
         <item>Teacher</item>

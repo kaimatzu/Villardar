@@ -7,6 +7,17 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <Switch
+        android:id="@+id/switchDayToggle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minHeight="32dp"
+        android:text="@string/day_mode"
+        app:layout_constraintBottom_toTopOf="@+id/title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
     <TextView
         android:id="@+id/title"
         android:layout_width="wrap_content"
@@ -60,7 +71,7 @@
         tools:ignore="DuplicateSpeakableTextCheck,SpeakableTextPresentCheck,TextContrastCheck" />
 
     <Spinner
-        android:id="@+id/spinner"
+        android:id="@+id/userTypeSpinner"
         android:layout_width="247dp"
         android:layout_height="59dp"
         android:layout_marginTop="16dp"
@@ -72,30 +83,81 @@
         app:layout_constraintTop_toBottomOf="@+id/nameTextBox" />
 
     <RadioGroup
-        android:id="@+id/radioGroup"
+        android:id="@+id/genderRadioGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="46dp"
-        android:layout_marginBottom="50dp"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintBottom_toTopOf="@+id/yearRadioGroup"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner"
+        app:layout_constraintTop_toBottomOf="@+id/userTypeSpinner"
         app:layout_constraintVertical_bias="0.0">
 
         <RadioButton
-            android:id="@+id/maleButton"
+            android:id="@+id/maleRadioButton"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:text="@string/male" />
 
         <RadioButton
-            android:id="@+id/femaleButton"
+            android:id="@+id/femaleRadioButton"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:text="@string/string_female" />
     </RadioGroup>
+
+    <CheckBox
+        android:id="@+id/fromCITCheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/from_cit"
+        app:layout_constraintEnd_toStartOf="@+id/genderRadioGroup"
+        app:layout_constraintHorizontal_bias="0.14"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userTypeSpinner" />
+
+    <RadioGroup
+        android:id="@+id/yearRadioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="46dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fromCITCheckBox"
+        app:layout_constraintVertical_bias="0.0" >
+
+        <RadioButton
+            android:id="@+id/firstYearRadioButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/_1st" />
+
+        <RadioButton
+            android:id="@+id/secondYearRadioButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/_2nd" />
+
+        <RadioButton
+            android:id="@+id/thirdYearRadioButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/_3rd" />
+
+        <RadioButton
+            android:id="@+id/fourthYearRadioButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/_4th" />
+    </RadioGroup>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
